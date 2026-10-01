@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pré-Consulta para Moto Zero - Atendimento Shineray</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #121212;
+            --card-border: #222222;
+            --primary-red: #ff0015;
+            --primary-red-hover: #e60012;
+            --red-glow: rgba(255, 0, 21, 0.35);
+            --text-white: #ffffff;
+            --text-gray: #a1a1aa;
+            --transition: all 0.3s ease;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        .disclaimer-top {
+            background: linear-gradient(90deg, #1a0002, #2a0305, #1a0002);
+            color: #ffb703;
+            text-align: center;
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--primary-red);
+            letter-spacing: 0.5px;
+        }
+
+        .hero-section {
+            position: relative;
+            background: radial-gradient(circle at center, #1c0204 0%, #080808 70%);
+            padding: 70px 20px 90px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-red);
+        }
+
+        .badge-top {
+            display: inline-block;
+            background: rgba(255, 0, 21, 0.15);
+            color: #ff4d59;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 0, 21, 0.4);
+            box-shadow: 0 0 15px rgba(255, 0, 21, 0.2);
+        }
+
+        .hero-section h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .hero-section h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero-section p {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-red) 0%, #b3000f 100%);
+            color: var(--text-white);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 25px var(--red-glow);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 0, 21, 0.6);
+        }
+
+        .benefits-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: -35px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 50px;
+        }
+
+        .benefit-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 22px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            border-color: var(--primary-red);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 0, 21, 0.15);
+        }
+
+        .benefit-card .icon { font-size: 32px; margin-bottom: 10px; }
+        .benefit-card h3 { font-size: 15px; font-weight: 700; }
+
+        .main-container { margin-bottom: 60px; }
+
+        .form-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.7);
+        }
+
+        .form-section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text-white);
+            border-left: 5px solid var(--primary-red);
+            padding-left: 14px;
+        }
+
+        .section-desc { color: var(--text-gray); font-size: 14px; margin-bottom: 25px; }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+
+        .input-group { margin-bottom: 20px; }
+
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input-group input {
+            width: 100%;
+            background: #0a0a0a;
+            border: 2px solid #262626;
+            padding: 15px 18px;
+            border-radius: 12px;
+            color: var(--text-white);
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            background: #111;
+            box-shadow: 0 0 15px rgba(255, 0, 21, 0.2);
+        }
+
+        .radio-group { display: flex; gap: 25px; padding: 12px 0; }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .radio-label input {
+            accent-color: var(--primary-red);
+            width: 20px;
+            height: 20px;
+        }
+
+        .motos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .moto-card {
+            background: #161616;
+            border: 2px solid #262626;
+            border-radius: 16px;
+            padding: 22px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .moto-card:hover {
+            border-color: #440005;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .moto-card.selected {
+            border-color: var(--primary-red);
+            background: linear-gradient(145deg, #180507, #121212);
+            box-shadow: 0 0 25px var(--red-glow);
+        }
+
+        .moto-img-container {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .moto-img-container img {
+            max-width: 95%;
+            max-height: 130px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .moto-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .moto-info h4 {
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            color: var(--text-white);
+        }
+
+        .moto-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .moto-btn {
+            width: 100%;
+            background: #222222;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--text-white);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .moto-card.selected .moto-btn {
+            background: var(--primary-red);
+            box-shadow: 0 4px 15px var(--red-glow);
+        }
+
+        .selo-selecionado {
+            display: none;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-red);
+            color: white;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 30px;
+            box-shadow: 0 3px 10px var(--red-glow);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .moto-card.selected .selo-selecionado { display: block; }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-red) 0%, #a1000a 100%);
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 30px var(--red-glow);
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 0, 21, 0.6);
+        }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 34px; box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            z-index: 1000; text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            background-color: #20ba5a;
+        }
+
+        footer {
+            background: #020202;
+            border-top: 1px solid #1a1a1a;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        footer p { color: var(--text-gray); font-size: 14px; margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+
+    <div class="disclaimer-top">
+        🛡️ Canal Oficial de Atendimento com Consultor Autorizado Shineray.
+    </div>
+
+    <header class="hero-section">
+        <div class="hero-content container">
+            <span class="badge-top">⚡ Atendimento Direto & Exclusivo</span>
+            <h1>Pré-Consulta para Moto Zero <span>Shineray</span></h1>
+            <p>Escolha o seu modelo preferido, preencha seus dados com total segurança e envie direto para a avaliação rápida do nosso <strong>Consultor Autorizado Shineray</strong>.</p>
+            <a href="#formulario" class="btn-primary">🚀 Iniciar Pré-Consulta Agora</a>
+        </div>
+    </header>
+
+    <section class="benefits-bar container">
+        <div class="benefit-card"><div class="icon">🔥</div><h3>Consultor Dedicado</h3></div>
+        <div class="benefit-card"><div class="icon">📋</div><h3>Seleção Rápida</h3></div>
+        <div class="benefit-card"><div class="icon">🔒</div><h3>100% Seguro</h3></div>
+        <div class="benefit-card"><div class="icon">🏍️</div><h3>Linha Completa</h3></div>
+    </section>
+
+    <main class="main-container container" id="formulario">
+        <form id="analiseForm">
+            <div class="form-section">
+                <h2>1. Seus Dados Pessoais</h2>
+                <p class="section-desc">Esses dados serão enviados de forma criptografada direto para o WhatsApp do consultor autorizado.</p>
+                <div class="input-group">
+                    <label for="nome">Nome Completo *</label>
+                    <input type="text" id="nome" required placeholder="Digite seu nome completo">
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label for="cpf">CPF *</label>
+                        <input type="text" id="cpf" required placeholder="000.000.000-00" maxlength="14">
+                    </div>
+                    <div class="input-group">
+                        <label for="nascimento">Data de Nascimento *</label>
+                        <input type="date" id="nascimento" required>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label for="whatsapp">WhatsApp *</label>
+                        <input type="text" id="whatsapp" required placeholder="(00) 00000-0000" maxlength="15">
+                    </div>
+                    <div class="input-group">
+                        <label for="profissao">Profissão *</label>
+                        <input type="text" id="profissao" required placeholder="Ex: Autônomo, CLT...">
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label for="renda">Renda Mensal (R$) *</label>
+                        <input type="text" id="renda" required placeholder="R$ 0,00">
+                    </div>
+                    <div class="input-group">
+                        <label for="entrada">Quanto deseja dar de entrada? (R$) *</label>
+                        <input type="text" id="entrada" required placeholder="R$ 0,00">
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Possui CNH? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="cnh" value="Sim" required> Sim</label>
+                            <label class="radio-label"><input type="radio" name="cnh" value="Não"> Não</label>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Situação do Nome *</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="situacao_nome" value="Nome Limpo" required> Nome Limpo</label>
+                            <label class="radio-label"><input type="radio" name="situacao_nome" value="Possui Restrição"> Possui Restrição</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>2. Escolha sua Moto Shineray</h2>
+                <p class="section-desc">Clique no modelo desejado para selecionar:</p>
+                <input type="hidden" id="motoSelecionada" required>
+                <div class="motos-grid" id="motosGrid"></div>
+            </div>
+
+            <button type="submit" class="btn-submit">🚀 Enviar para o Consultor Shineray</button>
+        </form>
+    </main>
+
+    <a href="https://wa.me/5565996041607?text=Olá! Gostaria de tirar dúvidas com o consultor sobre a pré-consulta para moto Shineray zero km." class="whatsapp-float" target="_blank" title="Fale no WhatsApp">
+        💬
+    </a>
+
+    <footer>
+        <div class="container footer-content">
+            <h3>🏍️ Pré-Consulta para Moto Zero - Shineray</h3>
+            <p>📱 WhatsApp do Consultor Autorizado: (65) 99604-1607</p>
+            <p style="font-size: 12px; opacity: 0.6; margin-top: 15px;">🔒 Atendimento personalizado e direto com o consultor autorizado Shineray.</p>
+        </div>
+    </footer>
+
+    <script>
+        const motosShineray = [
+            { nome: "Custom Denver 250", preco: "R$ 28.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2023/10/DENVER-250-Preta-1.png" },
+            { nome: "Flash 250 CC", preco: "R$ 27.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2023/10/IRON-250-Preta-1.png" },
+            { nome: "Shi 175 cc", preco: "R$ 23.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2023/10/SHI-175-Preta-1.png" },
+            { nome: "New shi 175 CC", preco: "R$ 21.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2024/04/SHI-175S-VERMELHA-1.png" },
+            { nome: "Shi 250 CC", preco: "R$ 27.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2023/10/SHI-250-Vermelha-1.png" },
+            { nome: "New jet 125", preco: "R$ 14.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2023/10/JET-125-Vermelha-1.png" },
+            { nome: "Rio 125", preco: "R$ 15.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2024/04/RIO-125-CINZA-1.png" },
+            { nome: "Custom Titanium 250", preco: "R$ 28.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2023/10/IRON-250-Preta-1.png" },
+            { nome: "Free 150", preco: "R$ 16.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2023/10/JEF-150-Preta-1.png" },
+            { nome: "Jef 170", preco: "R$ 19.997,00", imagem: "https://www.shineray.com.br/wp-content/uploads/2023/10/JEF-170-Preta-1.png" }
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById("motosGrid");
+            const inputMotoSelecionada = document.getElementById("motoSelecionada");
+
+            motosShineray.forEach(moto => {
+                const card = document.createElement("div");
+                card.className = "moto-card";
+                card.innerHTML = `
+                    <div class="selo-selecionado">✅ Selecionado</div>
+                    <div class="moto-img-container"><img src="${moto.imagem}" alt="${moto.nome}" loading="lazy"></div>
+                    <div class="moto-info"><h4>${moto.nome}</h4></div>
+                    <div class="moto-price">${moto.preco}</div>
+                    <button type="button" class="moto-btn">Selecionar Modelo</button>
+                `;
+                card.addEventListener("click", () => {
+                    document.querySelectorAll(".moto-card").forEach(c => c.classList.remove("selected"));
+                    card.classList.add("selected");
+                    inputMotoSelecionada.value = `${moto.nome} (${moto.preco})`;
+                });
+                grid.appendChild(card);
+            });
+
+            document.getElementById("cpf").addEventListener("input", (e) => {
+                let v = e.target.value.replace(/\D/g, "");
+                if (v.length > 11) v = v.slice(0, 11);
+                v = v.replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+                e.target.value = v;
+            });
+
+            document.getElementById("whatsapp").addEventListener("input", (e) => {
+                let v = e.target.value.replace(/\D/g, "");
+                if (v.length > 11) v = v.slice(0, 11);
+                v = v.replace(/^(\d{2})(\d)/g, "($1) $2").replace(/(\d{5})(\d{4})$/, "$1-$2");
+                e.target.value = v;
+            });
+
+            ["renda", "entrada"].forEach(id => {
+                document.getElementById(id).addEventListener("input", (e) => {
+                    let v = e.target.value.replace(/\D/g, "");
+                    e.target.value = (Number(v) / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+                });
+            });
+
+            document.getElementById("analiseForm").addEventListener("submit", (e) => {
+                e.preventDefault();
+                if (!inputMotoSelecionada.value) { alert("Por favor, selecione um modelo de moto Shineray antes de continuar."); return; }
+                
+                const nome = document.getElementById("nome").value;
+                const cpf = document.getElementById("cpf").value;
+                const nasc = document.getElementById("nascimento").value.split("-").reverse().join("/");
+                const wpp = document.getElementById("whatsapp").value;
+                const prof = document.getElementById("profissao").value;
+                const renda = document.getElementById("renda").value;
+                const entrada = document.getElementById("entrada").value;
+                const cnh = document.querySelector('input[name="cnh"]:checked').value;
+                const nomeLimpo = document.querySelector('input[name="situacao_nome"]:checked').value;
+                const moto = inputMotoSelecionada.value;
+
+                const msg = `🏍️ PRÉ-CONSULTA MOTO ZERO SHINERAY\n👤 Nome: ${nome}\n🆔 CPF: ${cpf}\n🎂 Nasc: ${nasc}\n📱 WhatsApp: ${wpp}\n💼 Profissão: ${prof}\n💰 Renda: ${renda}\n🪪 CNH: ${cnh}\n🟢 Situação Nome: ${nomeLimpo}\n💵 Entrada: ${entrada}\n🏍️ Moto: ${moto}\nGostaria de realizar uma pré-consulta para moto zero km com o consultor.`;
+                
+                window.open(`https://wa.me/5565996041607?text=${encodeURIComponent(msg)}`, "_blank");
+            });
+        });
+    </script>
+</body>
+</html>
